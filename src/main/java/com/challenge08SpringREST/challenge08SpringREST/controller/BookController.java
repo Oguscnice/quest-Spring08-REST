@@ -39,11 +39,11 @@ public class BookController {
     @PutMapping("/books/{id}")
     public Book update(@PathVariable int id, @RequestBody Book book){
         // getting blog
-        Book blogToUpdate = bookRepository.findById(id).get();
-        blogToUpdate.setTitle(book.getTitle());
-        blogToUpdate.setAuthor(book.getAuthor());
-        blogToUpdate.setContent(book.getContent());
-        return bookRepository.save(blogToUpdate);
+        Book bookToUpdate = bookRepository.findById(id).get();
+        bookToUpdate.setTitle(book.getTitle());
+        bookToUpdate.setAuthor(book.getAuthor());
+        bookToUpdate.setContent(book.getContent());
+        return bookRepository.save(bookToUpdate);
     }
 
     @DeleteMapping("books/{id}")
