@@ -10,25 +10,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 @Entity
-public class Blog {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String title;
+    private String author;
     private String content;
 
-    public Blog() {  }
 
-    public Blog(String title, String content) {
+    public Book() {  }
+
+    public Book(String title, String author, String content) {
         this.setTitle(title);
+        this.setAuthor(author);
         this.setContent(content);
     }
 
-    public Blog(int id, String title, String content) {
+    public Book(int id, String title, String author, String content) {
         this.setId(id);
         this.setTitle(title);
+        this.setAuthor(author);
         this.setContent(content);
     }
 
@@ -48,6 +52,14 @@ public class Blog {
         this.title = title;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public String getContent() {
         return content;
     }
@@ -58,10 +70,11 @@ public class Blog {
 
     @Override
     public String toString() {
-        return "Blog{" +
+        return "Book{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + content + '\'' +
                 '}';
     }
 }
